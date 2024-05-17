@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <div id="loginPage">
+    <div id="loginForms">
+        <form id="loginForm" action="/account/login" method="post">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="account_email" required
+                placeholder="Enter a valid email address">
+
+            <label for="password">Password:</label>
+            <!-- <div> <span>At least 12 characters</span>
+            </div> -->
+            <input type="password" id="password" name="account_password"
+                required placeholder="Enter a valid password">
+            <button type="submit">Login</button>
+        </form>
+        <p>No Account? <a href="/account/register">Sign-up</a></p>
+    </div>
+</div>
+</body>
+</html>

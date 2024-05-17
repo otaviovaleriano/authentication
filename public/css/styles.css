@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    height: 100vh; /* Make body take up full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  h1 {
+    color: blue;
+  }
+  
+  /* Login Page */
+  #loginPage {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Make loginPage take up full viewport height */
+    width: 100%; /* Ensure it takes the full width */
+  }
+  
+  #loginPage h1 {
+    width: 100%;
+    text-align: center; /* Center align the heading text */
+  }
+  
+  #loginForms {
+    justify-content: center;
+    width: 40%;
+    align-items: center;
+    background-color: #33465C;
+    padding: 20px;
+    text-align: center;
+    color: #FDFEFE;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add some shadow for better appearance */
+  }
+  
+  #loginForms input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #FDFEFE;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  #loginForms button {
+    max-width: 200px;
+    background-color: #030303;
+    color: #FDFEFE;
+    padding: 14px 20px;
+    margin: 10px auto;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+  }
+  
+  #loginForms button:hover {
+    background-color: #01B0D3;
+    color: #FDFEFE;
+  }
+  
+  #loginForms a {
+    text-decoration: underline;
+    color: #FDFEFE;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  #loginForms a:hover {
+    color: #01B0D3;
+  }
+  
+  #loginForms form label {
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: left;
+    display: block;
+  }
+  
