@@ -11,9 +11,6 @@ app.get("/", (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
-// app.get("/hi", (req: Request, res: Response) => {
-//   res.send("Hello there! - Changed!");
-// });
 
 // Server host name and port
 const HOST = 'localhost';
