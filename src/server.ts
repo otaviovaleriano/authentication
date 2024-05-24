@@ -1,22 +1,27 @@
 import express, { Express, Request, Response } from "express";
+import bodyParser from 'body-parser';
+import userRoutes from './routes/userRoutes';
 import path from "path";
 
 const app: Express = express();
 
-// Serve static files from the "public" directory
+// static files from public folder
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../public')));
 
-// Default GET route
-app.get("/", (req: Request, res: Response) => {
-  res.sendFile(path.join(__dirname, '../public/index.html'));
-});
+// route path
+app.use('/auth', userRoutes);
+
+
+// app.get("/", (req: Request, res: Response) => {
+//   res.sendFile(path.join(__dirname, '../public/index.html'));
+// });
+
 
 
 // Server host name and port
 const HOST = 'localhost';
 const PORT = 3000;
-
-// Log statement to confirm server operation
 app.listen(PORT, () => {
-  console.log(`trial app listening on ${HOST}:${PORT}`);
+  console.log(`Server running and listening on ${HOST}:${PORT}`);
 });

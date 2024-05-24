@@ -4,21 +4,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const body_parser_1 = __importDefault(require("body-parser"));
+const userRoutes_1 = __importDefault(require("./routes/userRoutes"));
 const path_1 = __importDefault(require("path"));
 const app = (0, express_1.default)();
-// Serve static files from the "public" directory
+// static files from public folder
+app.use(body_parser_1.default.json());
 app.use(express_1.default.static(path_1.default.join(__dirname, '../public')));
-// Default GET route
-app.get("/", (req, res) => {
-    res.sendFile(path_1.default.join(__dirname, '../public/index.html'));
-});
-// app.get("/hi", (req: Request, res: Response) => {
-//   res.send("Hello there! - Changed!");
+// route path
+app.use('/auth', userRoutes_1.default);
+// app.get("/", (req: Request, res: Response) => {
+//   res.sendFile(path.join(__dirname, '../public/index.html'));
 // });
 // Server host name and port
 const HOST = 'localhost';
 const PORT = 3000;
-// Log statement to confirm server operation
 app.listen(PORT, () => {
-    console.log(`trial app listening on ${HOST}:${PORT}`);
+    console.log(`Server running and listening on ${HOST}:${PORT}`);
 });
