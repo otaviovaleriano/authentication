@@ -17,10 +17,17 @@ const userModel_1 = require("../models/userModel");
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
 function createNewUser(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        const { username, password } = req.body;
-        const hashedPassword = yield bcryptjs_1.default.hash(password, 10);
-        yield (0, userModel_1.createUser)(username, hashedPassword);
-        res.status(201).json({ message: 'User created' });
+        try {
+            const { username, password } = req.body;
+            const hashedPassword = yield bcryptjs_1.default.hash(password, 10);
+            yield (0, userModel_1.createUser)(username, hashedPassword);
+            res.status(201).json({ message: 'User created' });
+            console.log('User created');
+        }
+        catch (error) {
+            console.error('Error creating user:', error);
+            res.status(500).json({ message: 'Internal server error' });
+        }
     });
 }
 exports.createNewUser = createNewUser;
@@ -29,6 +36,7 @@ function getUser(req, res) {
         const { id } = req.params;
         const user = yield (0, userModel_1.getUserById)(Number(id));
         if (!user) {
+            console.log('User not found');
             return res.status(404).json({ message: 'User not found' });
         }
         res.json(user);
@@ -53,6 +61,7 @@ function updateUserDetails(req, res) {
         const hashedPassword = yield bcryptjs_1.default.hash(password, 10);
         yield (0, userModel_1.updateUser)(Number(id), username, hashedPassword);
         res.json({ message: 'User updated' });
+        console.log('User updated');
     });
 }
 exports.updateUserDetails = updateUserDetails;
@@ -61,6 +70,7 @@ function removeUser(req, res) {
         const { id } = req.params;
         yield (0, userModel_1.deleteUser)(Number(id));
         res.json({ message: 'User deleted' });
+        console.log('User deleted');
     });
 }
 exports.removeUser = removeUser;
